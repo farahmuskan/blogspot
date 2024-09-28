@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>All Blog Posts</h1>
+{% for post in posts %}
+    <div>
+        <h2><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+        <p>by {{ post.author.username }} on {{ post.created_at.strftime('%Y-%m-%d') }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
+
